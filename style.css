@@ -39,10 +39,12 @@ a { font-size: 0.8rem; color: #007bff; text-decoration: none; display: inline-bl
         width: 95%;   /* Screen ke chipak kar chale */
     }
     .brand-container {
+        display:flex;
         flex-direction: column; /* Logo aur Tagline ek ke niche ek aa jayein */
         text-align: center;
     }
     .logo {
         width: 80px; /* Mobile par logo thoda chota */
+        margin-bottom: 10px;
     }
 }
