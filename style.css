@@ -5,10 +5,12 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 .container { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width:100%; max-width: 500px; margin:auto; text-align: center; }
 .brand-container{
     display:flex;
+    flex-direction: row;
     align-items:center;
-    justify-content: left;
+    justify-content: flex-start;
     gap:10px ;
-margin-bottom:20px}
+margin-bottom:20px
+}
     .logo{
     width:110px;
     height:auto;
@@ -35,16 +37,20 @@ a { font-size: 0.8rem; color: #007bff; text-decoration: none; display: inline-bl
 .logout-btn { background: #dc3545; }
 @media (max-width: 600px) {
     .container {
-        padding: 1rem; /* Choti screen par side se jagah bachane ke liye */
-        width: 95%;   /* Screen ke chipak kar chale */
+        padding: 1.5rem; /* Choti screen par side se jagah bachane ke liye */
+        width: 90%;   /* Screen ke chipak kar chale */
     }
     .brand-container {
-        display:flex;
-        flex-direction: column; /* Logo aur Tagline ek ke niche ek aa jayein */
+        justify-content: center;
+        flex-direction: row; /* Logo aur Tagline ek ke niche ek aa jayein */
         text-align: center;
     }
     .logo {
         width: 80px; /* Mobile par logo thoda chota */
         margin-bottom: 10px;
+    }
+    .tagline{
+        font: size 0.8rem;
+        max-width:100px;
     }
 }
