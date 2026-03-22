@@ -46,6 +46,7 @@ async function handleSignup() {
             document.getElementById('sign-msg').innerText = data.message;
         }
     } catch (err) {
+        alert("Network Error:Registration Failed.");
         console.error("Signup Error:", err);
     }
 }
@@ -67,10 +68,12 @@ async function handleLogin() {
             localStorage.setItem('guardianUser', JSON.stringify(data.user));
             showDashboard(data.user);
         } else {
-            document.getElementById('login-msg').innerText = data.message;
+            const msgElement=document.getElementById('login-msg'); 
+             msgElement.style.color="red";
+             msgElement.innerText = data.message;
         }
     } catch (err) {
-        console.error("Login Error:", err);
+        document.getElementById('login-msg').innerText = "Server connection failed.";
     }
 }
 
