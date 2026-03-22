@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrace | Guardian Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="brand-container">
+   <img src="EduTrace logo.png" alt="EduTrace Logo" class="logo">
+   <span class="tagline">Your window to their Future.</span>
+   </div>
+
+        <div id="login-section" class="form-box">
+            <h2>Guardian Login</h2>
+            <input type="email" id="login-email" placeholder="Enter Email" required>
+            <input type="password" id="login-pass" placeholder="Password" autocomplete="off" required>
+            <button onclick="handleLogin()">Login</button>
+            <p id="login-msg"></p>
+            <a href="#" onclick="showSection('signup-section')">Not registered? Want to log up</a><br>
+            <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+        </div>
+
+        <div id="signup-section" class="form-box" style="display:none;">
+            <h2>Guardian Registration</h2>
+            <form id="signForm" onsubmit="event.preventDefault();handleSignup();">
+            <input type="email" id="sign-email" placeholder="Email" required>
+            <input type="tel" id="sign-phone" placeholder="Phone Number" required>
+            <input type="text" id="sign-ward" placeholder="Ward Name" required>
+            <input type="text" id="sign-class" placeholder="Ward Class" required>
+            <input type="password" id="sign-pass" placeholder="Create Password" autocomplete="off"  required>
+            <input type="password" id="sign-confirm" placeholder="Confirm Password" required>
+            <button  type="submit">Sign Up</button>
+            </form>
+            <p id="sign-msg"></p>
+            <a href="#" onclick="showSection('login-section')">Already have an account? Login</a>
+        </div>
+
+        <div id="dashboard-section" class="form-box" style="display:none;">
+            <h2 id="welcome-user">Welcome, Guardian</h2>
+            <div class="dashboard-menu">
+                <div class="card" onclick="showPerformance()">
+                    <h3>Curricular Performance</h3>
+                </div>
+                <div class="card" onclick="showDues()">
+                    <h3>Pay Dues</h3>
+                </div>
+            </div>
+            <div id="performance-section" style="display:none; margin-top: 20px;">
+    <h3>Student Progress Report</h3>
+    
+    <div class="student-info" style="text-align: left; margin-bottom: 15px; padding: 10px; border-left: 4px solid #28a745; background: #fdfdfd;">
+    <p><strong>Student Name:</strong> <span id="perf-name">-</span></p>
+    <p><strong>Guardian:</strong> <span id="perf-guardian">-</span></p>
+    <p><strong>Class & Section:</strong> <span id="perf-class">-</span></p>
+    <p><strong>Address:</strong> <span id="perf-address">-</span></p>
+</div>
+
+    <table border="1" style="width:100%; border-collapse: collapse; text-align: center;">
+        <thead>
+            <tr>
+                <th>Subjects</th>
+                <th>Unit 1</th>
+                <th>Semester 1</th>
+                <th>Unit 2</th>
+                <th>Semester 2</th>
+            </tr>
+        </thead>
+        <tbody id="marks-table-body">
+            </tbody>
+    </table>
+    
+    <button onclick="hidePerformance()" style="margin-top:10px;">Back to Dashboard</button>
+</div>
+<div id="payment-section" style="display:none; margin-top: 20px;">
+    <h3>Fee Payment Dashboard</h3>
+    
+    <div class="fee-summary" style="text-align: left; margin-bottom: 15px; background: #f9f9f9; padding: 10px; border-radius: 8px;">
+        <p><strong>Current Status:</strong> <span id="pay-status">-</span></p>
+        <p><strong>Net Payable Amount:</strong> <span id="total-payable" style="color: red; font-size: 1.2em;">₹0</span></p>
+    </div>
+
+    <table border="1" style="width:100%; border-collapse: collapse; text-align: center;">
+        <thead>
+            <tr style="background-color: #eee;">
+                <th>Description</th>
+                <th>Amount (₹)</th>
+            </tr>
+        </thead>
+        <tbody id="dues-table-body">
+            </tbody>
+        <tfoot>
+            <tr style="font-weight: bold;">
+                <td>Previous Balance / Advance</td>
+                <td id="prev-balance">0</td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <div style="margin-top: 15px; display: flex; gap: 10px;">
+        <button onclick="processPayment()" style="background-color: green; color: white;">Pay Now & Get Receipt</button>
+        <button onclick="document.getElementById('payment-section').style.display='none'">Back to Dashboard</button>
+    </div>
+</div>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
