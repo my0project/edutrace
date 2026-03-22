@@ -59,6 +59,10 @@ const Payment = mongoose.model('Payment', paymentSchema);
 // 1. Signup Route
 app.post('/register', async (req, res) => {
     try {
+        const existing = await Guardian.findOne({ email: req.body.email });
+        if (existing) {
+            return res.status(400).json({ success: false, message: "Email already registered!" });
+        }
         const newGuardian = new Guardian(req.body);
         await newGuardian.save();
         const newPayment=new Payment({email:req.body.email,balance: 0});
@@ -69,7 +73,7 @@ app.post('/register', async (req, res) => {
         res.status(201).json({ success: true, message: "Registration Successful!" });
     } catch (error) {
         console.log("Error saving data:", error);
-        res.status(400).json({ success: false, message: "Email already exists!" });
+        res.status(500).json({ success: false, message: "Error !" +error.message });
     }
 });
 
