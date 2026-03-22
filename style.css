@@ -35,6 +35,7 @@ a { font-size: 0.8rem; color: #007bff; text-decoration: none; display: inline-bl
 .logout-btn { background: #dc3545; }
 @media (max-width: 600px) {
     .container {
+        display:flex;
         padding: 1rem; /* Choti screen par side se jagah bachane ke liye */
         width: 95%;   /* Screen ke chipak kar chale */
     }
